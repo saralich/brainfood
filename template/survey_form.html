@@ -1,0 +1,376 @@
+<!-- Sara Lichtenstein, Senior Project 2017, survey page -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Brain Food Survey</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="navbar-fixed-top.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+  </head>
+
+  <body style="background-color:#333333;">
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse bg-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/index.html">Brain Food</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/register_form.html">Register</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/login_form.html">Login</a></li>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <!-- presurvey -->
+    <div class="container">
+      <div style="background:transparent !important" class="jumbotron">
+        <h1 style="color:white;">Thank You For Choosing Brain Food.</h1>
+        {{ state }}
+        <form action="/survey_form/" method="post" name="survey_form" class="form form--login"/>{% csrf_token %}
+        {% if next %}
+        <input type="hidden" name="next" value="{{ next }}"/>
+        {% endif %}
+
+        
+        <div>
+          <p style="color:white;">Please fill out the following information about yourself for best results.</p>
+        </div>
+
+        <table class="table">
+          <tr>
+            <th>  </th>
+            <th style="color:white;">None</th>
+            <th style="color:white;">Light</th>
+            <th style="color:white;">Moderate</th>
+            <th style="color:white;">Vigorous</th>
+          </tr>
+          <tr>
+            <td>
+              {{ form.non_field_errors }}
+              <div class="form__field" style="color:white;">
+                {{ form.mentalActivity.errors }}
+                {{ form.mentalActivity.label_tag }}
+                <label for="interestedResponse"><span class="hidden">Projected Mental Activity</span></label>
+                <td colspan="10" style="color:transparent !important">{{ form.mentalActivity }}</td>
+              </div>
+            </td>
+          </tr>
+        </table>
+
+        <div>
+          <p style="color:white;">This is a survey to assess your mood. Please indicate to what extent you feel this way right now, that is, at this present moment.</p>
+        </div>
+
+        <table class="table">
+          <tr>
+            <th>  </th>
+            <th style="color:white;">Very Slightly or Not At All</th>
+            <th style="color:white;">A Little</th>
+            <th style="color:white;">Moderately</th>
+            <th style="color:white;">Quite a Bit </th>
+            <th style="color:white;">Extremely</th>
+          </tr>
+          <tr>
+            <td>
+              {{ form.non_field_errors }}
+              <div class="form__field" style="color:white;">
+                {{ form.interestedResponse.errors }}
+                {{ form.interestedResponse.label_tag }}
+                <label for="interestedResponse"><span class="hidden">Interested</span></label>
+                <td colspan="10" style="color:transparent !important">{{ form.interestedResponse }}</td>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              {{ form.non_field_errors }}
+              <div class="form__field" style="color:white;">
+                {{ form.distressedResponse.errors }}
+                {{ form.distressedResponse.label_tag }}
+                <label for="distressedResponse"><span class="hidden">Distressed</span></label>
+                <td colspan="10" style="color:transparent !important">{{ form.distressedResponse }}</td>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              {{ form.non_field_errors }}
+              <div class="form__field" style="color:white;">
+                {{ form.excitedResponse.errors }}
+                {{ form.excitedResponse.label_tag }}
+                <label for="excitedResponse"><span class="hidden">Excited</span></label>
+                <td colspan="10" style="color:transparent !important">{{ form.excitedResponse }}</td>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              {{ form.non_field_errors }}
+              <div class="form__field" style="color:white;">
+                {{ form.upsetResponse.errors }}
+                {{ form.upsetResponse.label_tag }}
+                <label for="upsetResponse"><span class="hidden">Upset</span></label>
+                <td colspan="10" style="color:transparent !important">{{ form.upsetResponse }}</td>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              {{ form.non_field_errors }}
+              <div class="form__field" style="color:white;">
+                {{ form.strongResponse.errors }}
+                {{ form.strongResponse.label_tag }}
+                <label for="strongResponse"><span class="hidden">Strong</span></label>
+                <td colspan="10" style="color:transparent !important">{{ form.strongResponse }}</td>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              {{ form.non_field_errors }}
+              <div class="form__field" style="color:white;">
+                {{ form.guiltyResponse.errors }}
+                {{ form.guiltyResponse.label_tag }}
+                <label for="guiltyResponse"><span class="hidden">Guilty/span></label>
+                <td colspan="10" style="color:transparent !important">{{ form.guiltyResponse }}</td>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              {{ form.non_field_errors }}
+              <div class="form__field" style="color:white;">
+                {{ form.scaredResponse.errors }}
+                {{ form.scaredResponse.label_tag }}
+                <label for="scaredResponse"><span class="hidden">Scared</span></label>
+                <td colspan="10" style="color:transparent !important">{{ form.scaredResponse }}</td>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              {{ form.non_field_errors }}
+              <div class="form__field" style="color:white;">
+                {{ form.hostileResponse.errors }}
+                {{ form.hostileResponse.label_tag }}
+                <label for="hostileResponse"><span class="hidden">Hostile</span></label>
+                <td colspan="10" style="color:transparent !important">{{ form.hostileResponse }}</td>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              {{ form.non_field_errors }}
+              <div class="form__field" style="color:white;">
+                {{ form.enthusiasticResponse.errors }}
+                {{ form.enthusiasticResponse.label_tag }}
+                <label for="enthusiasticResponse"><span class="hidden">Enthusiastic</span></label>
+                <td colspan="10" style="color:transparent !important">{{ form.enthusiasticResponse }}</td>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              {{ form.non_field_errors }}
+              <div class="form__field" style="color:white;">
+                {{ form.proudResponse.errors }}
+                {{ form.proudResponse.label_tag }}
+                <label for="proudResponse"><span class="hidden">Proud</span></label>
+                <td colspan="10" style="color:transparent !important">{{ form.proudResponse }}</td>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              {{ form.non_field_errors }}
+              <div class="form__field" style="color:white;">
+                {{ form.irritableResponse.errors }}
+                {{ form.irritableResponse.label_tag }}
+                <label for="irritableResponse"><span class="hidden">Irritable/span></label>
+                <td colspan="10" style="color:transparent !important">{{ form.irritableResponse }}</td>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              {{ form.non_field_errors }}
+              <div class="form__field" style="color:white;">
+                {{ form.alertResponse.errors }}
+                {{ form.alertResponse.label_tag }}
+                <label for="alertResponse"><span class="hidden">Alert</span></label>
+                <td colspan="10" style="color:transparent !important">{{ form.alertResponse }}</td>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              {{ form.non_field_errors }}
+              <div class="form__field" style="color:white;">
+                {{ form.ashamedResponse.errors }}
+                {{ form.ashamedResponse.label_tag }}
+                <label for="ashamedResponse"><span class="hidden">Ashamed</span></label>
+                <td colspan="10" style="color:transparent !important">{{ form.ashamedResponse }}</td>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              {{ form.non_field_errors }}
+              <div class="form__field" style="color:white;">
+                {{ form.inspiredResponse.errors }}
+                {{ form.inspiredResponse.label_tag }}
+                <label for="inspiredResponse"><span class="hidden">Inspired</span></label>
+                <td colspan="10" style="color:transparent !important">{{ form.inspiredResponse }}</td>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              {{ form.non_field_errors }}
+              <div class="form__field" style="color:white;">
+                {{ form.nervousResponse.errors }}
+                {{ form.nervousResponse.label_tag }}
+                <label for="nervousResponse"><span class="hidden">Nervous</span></label>
+                <td colspan="10" style="color:transparent !important">{{ form.nervousResponse }}</td>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              {{ form.non_field_errors }}
+              <div class="form__field" style="color:white;">
+                {{ form.determinedResponse.errors }}
+                {{ form.determinedResponse.label_tag }}
+                <label for="determinedResponse"><span class="hidden">Determined</span></label>
+                <td colspan="10" style="color:transparent !important">{{ form.determinedResponse }}</td>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              {{ form.non_field_errors }}
+              <div class="form__field" style="color:white;">
+                {{ form.attentiveResponse.errors }}
+                {{ form.attentiveResponse.label_tag }}
+                <label for="attentiveResponse"><span class="hidden">Attentive</span></label>
+                <td colspan="10" style="color:transparent !important">{{ form.attentiveResponse }}</td>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              {{ form.non_field_errors }}
+              <div class="form__field" style="color:white;">
+                {{ form.jitteryResponse.errors }}
+                {{ form.jitteryResponse.label_tag }}
+                <label for="jitteryResponse"><span class="hidden">Jittery</span></label>
+                <td colspan="10" style="color:transparent !important">{{ form.jitteryResponse }}</td>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              {{ form.non_field_errors }}
+              <div class="form__field" style="color:white;">
+                {{ form.activeResponse.errors }}
+                {{ form.activeResponse.label_tag }}
+                <label for="activeResponse"><span class="hidden">Active</span></label>
+                <td colspan="10" style="color:transparent !important">{{ form.activeResponse }}</td>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              {{ form.non_field_errors }}
+              <div class="form__field" style="color:white;">
+                {{ form.afraidResponse.errors }}
+                {{ form.afraidResponse.label_tag }}
+                <label for="afraidResponse"><span class="hidden">Afraid</span></label>
+                <td colspan="10" style="color:transparent !important">{{ form.afraidResponse }}</td>
+              </div>
+            </td>
+          </tr>
+        </table>
+
+        <div class="container">
+            <a class="btn btn-lg btn-info" href="/device_form.html" role="button">Start Scan</a>
+        </div>
+      </div>
+    </div>
+  </form>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
