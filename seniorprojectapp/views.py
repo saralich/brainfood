@@ -43,7 +43,7 @@ def device_form(request):
 #1. Register Form
 def register_form(request):
 	#initialize user 
-	firstName = lastName = user_name = password = email = ''
+	firstName = lastName = user_name = password = user_email = ''
 	
 	#check for post
 	if request.method == 'POST':
@@ -55,20 +55,15 @@ def register_form(request):
 			newLastName = request.POST.get('lastName')
 			newUser_name = request.POST.get('user_name')
 			newPassword = request.POST.get('password')
-			newPasswordCheck = request.POST.get('passwordCheck')
-			newEmail = request.POST.get('email')
+			newUserEmail = request.POST.get('email')
 
 			#check if things are already registered
 			if User.objects.filter(user_name = newUser_name).exists():
 				state = "This username already exists."
 				return render(request, 'register_form.html', {'form':form, 'state':state})
 
-			if User.objects.filter(email = newEmail).exists():
+			if User.objects.filter(user_email = newEmail).exists():
 				state = "This email is already registered."
-				return render(request, 'register_form.html', {'form':form, 'state':state})
-
-			if newPassword != newPasswordCheck:
-				state = "Passwords do not match."
 				return render(request, 'register_form.html', {'form':form, 'state':state})
 
 			else:
@@ -77,11 +72,11 @@ def register_form(request):
 					last_name = newLastName,
 					user_name = newUser_name,
 					password = newPassword,
-					email = newEmail
+					user_email = newEmail
 				)
 				newUser.save()
 				state = "User successfully created."
-				return render(request, 'survey_form.html', {'form':form, 'state':state})
+				return render(request, 'login_form.html', {'form':form, 'state':state})
 		else:
 			form = RegisterForm()
 

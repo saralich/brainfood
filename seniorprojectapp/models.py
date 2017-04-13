@@ -15,7 +15,6 @@ class User(models.Model):
 
 	#generic username requirements
 	user_name = models.CharField(
-		"Username",
 		max_length = 50, 
 		blank = False
 	)
@@ -24,7 +23,6 @@ class User(models.Model):
 	
 	#generic password requirements
 	password = models.CharField(
-		"Password",
 		max_length = 20, 
 		blank = False, 
 		validators = [MinLengthValidator(8, "Your password must contain at least 8 characters.")]
@@ -34,8 +32,8 @@ class User(models.Model):
 
 	#first name
 	first_name = models.CharField(
-		"First Name",
 		max_length = 50,
+		blank = False,
 		validators = [RegexValidator(r'^[a-zA-Z]*$', 'Only alphabetic characters allowed')]
 	)
 	def __unicode__(self):
@@ -43,26 +41,26 @@ class User(models.Model):
 
 	#last name
 	last_name = models.CharField(
-		"Last Name",
 		max_length = 50,
+		blank = False,
 		validators = [RegexValidator(r'^[a-zA-Z]*$', 'Only alphabetic characters allowed')]
 	)
 	def __unicode__(self):
 		return self.last_name
 
 	#email
-	email = models.CharField(
-		"Email",
+	user_email = models.CharField(
+		blank = False,
 		max_length = 100
 	)
 	def __unicode__(self):
-		return self.email
+		return self.user_email
 
 	pass
 
 #create survey for better suggestions
 class Survey(models.Model):
-	survey_id = models.AutoField(primary_key=True, blank=False)
+	survey_id = models.AutoField(primary_key=True)
 	def __unicode__(self):
 		return self.survey_id
 
@@ -76,6 +74,7 @@ class Survey(models.Model):
 
 	#projected mental activity
 	mental_activity = models.CharField(
+		blank = False,
 		max_length = 1,
 		choices = MENT_ACT,
 		default = 'N'
@@ -93,121 +92,163 @@ class Survey(models.Model):
 	)
 
 	interested = models.CharField(
+		blank = False,
 		max_length = 1,
-		choices = PANAS,
-		default = '3',
+		choices = PANAS
 	)
+	def __unicode__(self):
+		return self.interested
 
 	distressed = models.CharField(
+		blank = False,
 		max_length = 1,
-		choices = PANAS,
-		default = '3'
+		choices = PANAS
 	)
+	def __unicode__(self):
+		return self.distressed
 
 	excited = models.CharField(
+		blank = False,
 		max_length = 1,
-		choices = PANAS,
-		default = '3'
+		choices = PANAS
 	)
+	def __unicode__(self):
+		return self.excited
 
 	upset = models.CharField(
+		blank = False,
 		max_length = 1,
-		choices = PANAS,
-		default = '3'
+		choices = PANAS
 	)
+	def __unicode__(self):
+		return self.upset
 
 	strong = models.CharField(
+		blank = False,
 		max_length = 1,
-		choices = PANAS,
-		default = '3'
+		choices = PANAS
 	)
+	def __unicode__(self):
+		return self.strong
 
 	guilty = models.CharField(
+		blank = False,
 		max_length = 1,
-		choices = PANAS,
-		default = '3'
+		choices = PANAS
 	)
+	def __unicode__(self):
+		return self.guilty
 
 	scared = models.CharField(
+		blank = False,
 		max_length = 1,
-		choices = PANAS,
-		default = '3'
+		choices = PANAS
 	)
+	def __unicode__(self):
+		return self.scared
 
 	hostile = models.CharField(
+		blank = False,
 		max_length = 1,
-		choices = PANAS,
-		default = '3'
+		choices = PANAS
 	)
+	def __unicode__(self):
+		return self.hostile
 
 	enthusiastic = models.CharField(
+		blank = False,
 		max_length = 1,
-		choices = PANAS,
-		default = '3'
+		choices = PANAS
 	)
+	def __unicode__(self):
+		return self.enthusiastic
 
 	proud = models.CharField(
+		blank = False,
 		max_length = 1,
-		choices = PANAS,
-		default = '3'
+		choices = PANAS
 	)
+	def __unicode__(self):
+		return self.proud
 
 	irritable = models.CharField(
+		blank = False,
 		max_length = 1,
-		choices = PANAS,
-		default = '3'
+		choices = PANAS
 	)
+	def __unicode__(self):
+		return self.irritable
 
 	alert = models.CharField(
+		blank = False,
 		max_length = 1,
-		choices = PANAS,
-		default = '3'
+		choices = PANAS
 	)
+	def __unicode__(self):
+		return self.alert
 
 	ashamed = models.CharField(
+		blank = False,
 		max_length = 1,
-		choices = PANAS,
-		default = '3'
+		choices = PANAS
 	)
+	def __unicode__(self):
+		return self.ashamed
 
 	inspired = models.CharField(
+		blank = False,
 		max_length = 1,
-		choices = PANAS,
-		default = '3'
+		choices = PANAS
 	)
+	def __unicode__(self):
+		return self.inspired
 
 	nervous = models.CharField(
+		blank = False,
 		max_length = 1,
-		choices = PANAS,
-		default = '3'
+		choices = PANAS
 	)
+	def __unicode__(self):
+		return self.nervous
 
 	determined = models.CharField(
+		blank = False,
 		max_length = 1,
-		choices = PANAS,
-		default = '3'
+		choices = PANAS
 	)
+	def __unicode__(self):
+		return self.determined
 
 	attentive = models.CharField(
+		blank = False,
 		max_length = 1,
-		choices = PANAS,
-		default = '3'
+		choices = PANAS
 	)
+	def __unicode__(self):
+		return self.attentive
 
 	jittery = models.CharField(
+		blank = False,
 		max_length = 1,
-		choices = PANAS,
-		default = '3'
+		choices = PANAS
 	)
+	def __unicode__(self):
+		return self.jittery
 
 	active = models.CharField(
+		blank = False,
 		max_length = 1,
-		choices = PANAS,
-		default = '3'
+		choices = PANAS
 	)
+	def __unicode__(self):
+		return self.active
 
 	afraid = models.CharField(
+		blank = False,
 		max_length = 1,
-		choices = PANAS,
-		default = '3'
+		choices = PANAS
 	)
+	def __unicode__(self):
+		return self.afraid
+
+	pass

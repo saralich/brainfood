@@ -80,40 +80,34 @@
         {% endif %}
 
         {{ form.non_field_errors }}
-        <div class="form__field" style="color:white;">
+        <div class="form__field" style="color:#5bc0de;">
           {{ form.firstName.errors }}
           {{ form.firstName.label_tag }}
-          <label for="firstName" style="color:white;"><span class="hidden">First Name</span></label> {{ form.firstName }}
+          <label for="firstName"><span class="hidden">First Name</span></label> {{ form.firstName }}
         </div>
 
-        <div class="form__field" style="color:white;">
+        <div class="form__field" style="color:#5bc0de;">
           {{ form.lastName.errors }}
           {{ form.lastName.label_tag }}
-          <label for="lastName" style="color:white;"><span class="hidden">Last Name</span></label> {{ form.lastName }}
+          <label for="lastName"><span class="hidden">Last Name</span></label> {{ form.lastName }}
         </div>
 
-        <div class="form__field" style="color:white;">
-          {{ form.email.errors }}
-          {{ form.email.label_tag }}
-          <label for="email" style="color:white;"><span class="hidden">Email</span></label> {{ form.email }}
+        <div class="form__field" style="color:#5bc0de;">
+          {{ form.user_email.errors }}
+          {{ form.user_email.label_tag }}
+          <label for="email"><span class="hidden">Email</span></label> {{ form.user_email }}
         </div>
 
-        <div class="form__field" style="color:white;">
+        <div class="form__field" style="color:#5bc0de;">
           {{ form.user_name.errors }}
           {{ form.user_name.label_tag }}
-          <label for="user_name" style="color:white;"><span class="hidden">Username</span></label> {{ form.user_name }}
+          <label for="user_name"><span class="hidden">Username</span></label> {{ form.user_name }}
         </div>
 
-        <div class="form__field" style="color:white;">
+        <div class="form__field" style="color:#5bc0de;">
           {{ form.password.errors }}
           {{ form.password.label_tag }}
-          <label for="password" style="color:white;"><span class="hidden">Password</span></label> {{ form.password }}
-        </div>
-
-        <div class="form__field" style="color:white;">
-          {{ form.passwordCheck.errors }}
-          {{ form.passwordCheck.label_tag }}
-          <label for="passwordCheck" style="color:white;"><span class="hidden">Password Check</span></label> {{ form.passwordCheck }}
+          <label for="password"><span class="hidden">Password</span></label> {{ form.password }}
         </div>
 
         <div class="container">

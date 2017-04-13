@@ -41,7 +41,7 @@ class RegisterForm(forms.Form):
 	)
 
 	#email
-	email = forms.CharField(
+	user_email = forms.CharField(
 		label = 'Email',
 		min_length = 8,
 		max_length = 100,
@@ -54,14 +54,6 @@ class RegisterForm(forms.Form):
 		label = 'Password',
 		min_length = 8,
 		widget = forms.PasswordInput(),
-		required = True
-	)
-
-	#password check
-	passwordCheck = forms.CharField(
-		label = 'Password Check',
-		min_length = 8,
-		widget = forms.PasswordInput(), 
 		required = True
 	)
 
