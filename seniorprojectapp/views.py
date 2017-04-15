@@ -43,7 +43,7 @@ def trial_form(request):
 #1. Register Form
 def register_form(request):
 	#initialize user 
-	firstName = lastName = user_name = password = user_email = ''
+	newFirstName = newLastName = newUserName = newPassword = newUserEmail = ''
 	
 	#check for post
 	if request.method == 'POST':
@@ -51,14 +51,14 @@ def register_form(request):
 		#if valid, pull the info
 		form = RegisterForm(request.POST)
 		if form.is_valid():
-			newFirstName = request.POST.get('firstName', '')
-			newLastName = request.POST.get('lastName', '')
-			newUser_name = request.POST.get('user_name', '')
-			newPassword = request.POST.get('password', '')
-			newUserEmail = request.POST.get('email', '')
+			newFirstName = request.POST.get('firstName')
+			newLastName = request.POST.get('lastName')
+			newUserName = request.POST.get('userName')
+			newUserPassword = request.POST.get('userPassword')
+			newUserEmail = request.POST.get('userEmail')
 
 			#check if things are already registered
-			if User.objects.filter(user_name = newUser_name).exists():
+			if User.objects.filter(user_name = newUserName).exists():
 				state = "This username already exists."
 				return render(request, 'register_form.html', {'form':form, 'state':state})
 
@@ -70,8 +70,8 @@ def register_form(request):
 				newUser = User(
 					first_name = newFirstName,
 					last_name = newLastName,
-					user_name = newUser_name,
-					password = newPassword,
+					user_name = newUserName,
+					password = newUserPassword,
 					user_email = newUserEmail
 				)
 				newUser.save()
@@ -165,7 +165,12 @@ def survey_form(request):
 @login_required
 def login_form(request):
 	#initialize model variables
-	user_name = password = ''
+	loginUserName = loginUserPassword = ''
+	try:
+		del request.session['user_name']
+		del request.session['user_email']
+	except KeyError:
+		pass
 	
 	#check for post
 	if request.method == 'POST':
@@ -173,15 +178,16 @@ def login_form(request):
 	#if valid, pull info
 		form = LoginForm(request.POST)
 		if form.is_valid():
-			user_name = request.POST.get('user_name')
-			password = request.POST.get('password')
-			user = User.objects.get(user_name = user_name)
+			loginUserName = request.POST.get('userName')
+			loginUserPassword = request.POST.get('userPassword')
+			user = User.objects.get(user_name = loginUserName)
 			
 			#checks
 			if request.user.is_authenticated:
-				if user.password == password:
+				if user.password == loginUserPassword:
 					state = "Successful login."
 					request.session['user_name'] = user.user_name
+					request.session['user_email'] = user.user_email
 					print("auth works")
 					return HttpResponseRedirect('/survey_form/')
 				else:

@@ -33,7 +33,7 @@ class RegisterForm(forms.Form):
 	)
 
 	#username, work on uniqueness
-	user_name = forms.CharField(
+	userName = forms.CharField(
 		label = 'Username',
 		min_length = 8,
 		max_length = 50,
@@ -41,7 +41,7 @@ class RegisterForm(forms.Form):
 	)
 
 	#email
-	user_email = forms.CharField(
+	userEmail = forms.CharField(
 		label = 'Email',
 		min_length = 8,
 		max_length = 100,
@@ -50,7 +50,7 @@ class RegisterForm(forms.Form):
 	)
 
 	#password
-	password = forms.CharField(
+	userPassword = forms.CharField(
 		label = 'Password',
 		min_length = 8,
 		widget = forms.PasswordInput(),
@@ -60,7 +60,7 @@ class RegisterForm(forms.Form):
 #login
 class LoginForm(forms.Form):
 	#username
-	user_name = forms.CharField(
+	userName = forms.CharField(
 		label = 'Username',
 		min_length = 8,
 		max_length = 100,
@@ -68,7 +68,7 @@ class LoginForm(forms.Form):
 	)
 
 	#password
-	password = forms.CharField(
+	userPassword = forms.CharField(
 		label = 'Password',
 		min_length = 8,
 		widget = forms.PasswordInput(),
