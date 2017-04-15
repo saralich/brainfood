@@ -35,8 +35,8 @@ def about(request):
 	context = RequestContext(request)
 	return HttpResponse(template.render(context))
 
-def device_form(request):
-	template = loader.get_template('device_form.html')
+def trial_form(request):
+	template = loader.get_template('trial_form.html')
 	context = RequestContext(request)
 	return HttpResponse(template.render(context))
 
@@ -51,18 +51,18 @@ def register_form(request):
 		#if valid, pull the info
 		form = RegisterForm(request.POST)
 		if form.is_valid():
-			newFirstName = request.POST.get('firstName')
-			newLastName = request.POST.get('lastName')
-			newUser_name = request.POST.get('user_name')
-			newPassword = request.POST.get('password')
-			newUserEmail = request.POST.get('email')
+			newFirstName = request.POST.get('firstName', '')
+			newLastName = request.POST.get('lastName', '')
+			newUser_name = request.POST.get('user_name', '')
+			newPassword = request.POST.get('password', '')
+			newUserEmail = request.POST.get('email', '')
 
 			#check if things are already registered
 			if User.objects.filter(user_name = newUser_name).exists():
 				state = "This username already exists."
 				return render(request, 'register_form.html', {'form':form, 'state':state})
 
-			if User.objects.filter(user_email = newEmail).exists():
+			if User.objects.filter(user_email = newUserEmail).exists():
 				state = "This email is already registered."
 				return render(request, 'register_form.html', {'form':form, 'state':state})
 
@@ -72,15 +72,15 @@ def register_form(request):
 					last_name = newLastName,
 					user_name = newUser_name,
 					password = newPassword,
-					user_email = newEmail
+					user_email = newUserEmail
 				)
 				newUser.save()
+				user_id = newUser.user_id
+				print("new user success reg")
 				state = "User successfully created."
-				return render(request, 'login_form.html', {'form':form, 'state':state})
-		else:
-			form = RegisterForm()
-
+				return HttpResponseRedirect('/login_form/')
 	else:
+		print("not posted reg")
 		form = RegisterForm()
 
 	state = "Please enter new user information"
@@ -95,16 +95,13 @@ def survey_form(request):
 	inspiredResponse = nervousResponse = determinedResponse = attentiveResponse = ''
 	jitteryResponse = activeResponse = afraidResponse = ''
 
-	#initalize survey
-	start_time = datetime.datetime.now()
-	start_time = start_time.strftime("%Y-%m-%d %H:%M")
-
 	#check for post
 	if request.method == 'POST':
 	
 	#if valid, pull the info
 		form = SurveyForm(request.POST)
 		if form.is_valid():
+
 			newMentalActivity = request.POST.get('mentalActivity')
 			newInterestedResponse = request.POST.get('interestedResponse')
 			newDistressedResponse = request.POST.get('distressedResponse')
@@ -128,35 +125,35 @@ def survey_form(request):
 			newAfraidResponse = request.POST.get('afraidResponse')
 			
 			#save new survey response
-			newSurveyRepsonse = Survey(
+			newSurvey = Survey(
 				mental_activity = newMentalActivity,
-				interestedResponse = newInterestedResponse,
-				distressedResponse = newDistressedResponse,
-				excitedResponse = newExcitedResponse,
-				upsetResponse = newUpsetResponse,
-				strongResponse = newStrongResponse,
-				guiltyResponse = newGuiltyResponse,
-				scaredResponse = newScaredResponse,
-				hostileResponse = newHostileResponse,
-				enthusiasticResponse = newEnthusiasticResponse,
-				proudResponse = newProudResponse,
-				irritableResponse = newIrritableResponse,
-				alertResponse = newAlertResponse,
-				ashamedResponse = newAshamedResponse,
-				inspiredResponse = newInspiredResponse,
-				nervousResponse = newNervousResponse,
-				determinedResponse = newDeterminedResponse,
-				attentiveResponse = newAttentiveResponse,
-				jitteryResponse = newJitteryResponse,
-				activeResponse = newActiveResponse,
-				afraidResponse = newAfraidResponse
+				interested = newInterestedResponse,
+				distressed = newDistressedResponse,
+				excited = newExcitedResponse,
+				upset = newUpsetResponse,
+				strong = newStrongResponse,
+				guilty = newGuiltyResponse,
+				scared = newScaredResponse,
+				hostile = newHostileResponse,
+				enthusiastic = newEnthusiasticResponse,
+				proud = newProudResponse,
+				irritable = newIrritableResponse,
+				alert = newAlertResponse,
+				ashamed = newAshamedResponse,
+				inspired = newInspiredResponse,
+				nervous = newNervousResponse,
+				determined = newDeterminedResponse,
+				attentive = newAttentiveResponse,
+				jittery = newJitteryResponse,
+				active = newActiveResponse,
+				afraid = newAfraidResponse
 			)
-			newSurveyRepsonse.save()
+			newSurvey.save()
 			#print that it worked
 			print("Log: new survey saved")
 			state = "New survey response recorded."
 			#redirect to next page
-			return HttpResponseRedirect('/device_form/')
+			return HttpResponseRedirect('/trial_form/')
 
 	else:
 		form = SurveyForm()
@@ -165,14 +162,10 @@ def survey_form(request):
 	return render(request, 'survey_form.html', {'form':form, 'state':state})
 
 #3. Login Form
+@login_required
 def login_form(request):
 	#initialize model variables
 	user_name = password = ''
-	try:
-		del request.session['username']
-		del request.session['email']
-	except KeyError:
-		pass
 	
 	#check for post
 	if request.method == 'POST':
@@ -180,28 +173,29 @@ def login_form(request):
 	#if valid, pull info
 		form = LoginForm(request.POST)
 		if form.is_valid():
-			user_name = request.POST.get('username')
+			user_name = request.POST.get('user_name')
 			password = request.POST.get('password')
-			user = User.objects.get(user_name = username)
+			user = User.objects.get(user_name = user_name)
 			
 			#checks
 			if request.user.is_authenticated:
 				if user.password == password:
 					state = "Successful login."
-					request.session['username'] = user.user_name
-					request.session['email'] = user.email
-					return render(request, 'survey_form.html', {'form':form, 'state':state})
+					request.session['user_name'] = user.user_name
+					print("auth works")
+					return HttpResponseRedirect('/survey_form/')
 				else:
 					state = "Password did not match."
+					print("password doesnt match")
 					return render(request, 'login_form.html', {'form':form, 'state':state})
 
 			else:
 				state = "Invalid username."
+				print("invalid username")
 				return render(request, 'login_form.html', {'form':form, 'state':state})
-		else:
-			form = LoginForm()
 
 	else:
+		print("not posted")
 		form = LoginForm()
 
 	state = "Please enter valid username and password combination"

@@ -50,8 +50,8 @@ class User(models.Model):
 
 	#email
 	user_email = models.CharField(
+		max_length = 50,
 		blank = False,
-		max_length = 100
 	)
 	def __unicode__(self):
 		return self.user_email
@@ -63,6 +63,13 @@ class Survey(models.Model):
 	survey_id = models.AutoField(primary_key=True)
 	def __unicode__(self):
 		return self.survey_id
+
+	#user = models.ForeignKey(
+	#	User,
+	#	on_delete = models.CASCADE
+	#)
+	#def __unicode__(self):
+	#	return self.user
 
 	#mental activity
 	MENT_ACT = (
@@ -250,5 +257,3 @@ class Survey(models.Model):
 	)
 	def __unicode__(self):
 		return self.afraid
-
-	pass

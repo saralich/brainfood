@@ -78,291 +78,291 @@
         {% endif %}
 
         
-        <div>
-          <p style="color:white;">Please fill out the following information about yourself for best results.</p>
-        </div>
+          <div>
+            <p style="color:white;">Please fill out the following information about yourself for best results.</p>
+          </div>
 
-        <table class="table">
-          <tr>
-            <th>  </th>
-            <th style="color:white;">None</th>
-            <th style="color:white;">Light</th>
-            <th style="color:white;">Moderate</th>
-            <th style="color:white;">Vigorous</th>
-          </tr>
-          <tr>
-            <td>
-              {{ form.non_field_errors }}
-              <div class="form__field" style="color:white;">
-                {{ form.mentalActivity.errors }}
-                {{ form.mentalActivity.label_tag }}
-                <label for="interestedResponse"><span class="hidden">Projected Mental Activity</span></label>
-                <td colspan="10" style="color:transparent !important">{{ form.mentalActivity }}</td>
-              </div>
-            </td>
-          </tr>
-        </table>
+          <table class="table">
+            <tr>
+              <th>  </th>
+              <th style="color:white;">None</th>
+              <th style="color:white;">Light</th>
+              <th style="color:white;">Moderate</th>
+              <th style="color:white;">Vigorous</th>
+            </tr>
+            <tr>
+              <td>
+                {{ form.non_field_errors }}
+                <div class="form__field" style="color:white;">
+                  {{ form.mentalActivity.errors }}
+                  {{ form.mentalActivity.label_tag }}
+                  <label for="survey_mentalActivity"><span class="hidden">Projected Mental Activity</span></label>
+                  <td colspan="10" style="color:transparent !important">{{ form.mentalActivity }}</td>
+                </div>
+              </td>
+            </tr>
+          </table>
 
-        <div>
-          <p style="color:white;">This is a survey to assess your mood. Please indicate to what extent you feel this way right now, that is, at this present moment.</p>
-        </div>
+          <div>
+            <p style="color:white;">This is a survey to assess your mood. Please indicate to what extent you feel this way right now, that is, at this present moment.</p>
+          </div>
 
-        <table class="table">
-          <tr>
-            <th>  </th>
-            <th style="color:white;">Very Slightly or Not At All</th>
-            <th style="color:white;">A Little</th>
-            <th style="color:white;">Moderately</th>
-            <th style="color:white;">Quite a Bit </th>
-            <th style="color:white;">Extremely</th>
-          </tr>
-          <tr>
-            <td>
-              {{ form.non_field_errors }}
-              <div class="form__field" style="color:white;">
-                {{ form.interestedResponse.errors }}
-                {{ form.interestedResponse.label_tag }}
-                <label for="interestedResponse"><span class="hidden">Interested</span></label>
-                <td colspan="10" style="color:transparent !important">{{ form.interestedResponse }}</td>
-              </div>
-            </td>
-          </tr>
+          <table class="table">
+            <tr>
+              <th>  </th>
+              <th style="color:white;">Very Slightly or Not At All</th>
+              <th style="color:white;">A Little</th>
+              <th style="color:white;">Moderately</th>
+              <th style="color:white;">Quite a Bit </th>
+              <th style="color:white;">Extremely</th>
+            </tr>
+            <tr>
+              <td>
+                {{ form.non_field_errors }}
+                <div class="form__field" style="color:white;">
+                  {{ form.interestedResponse.errors }}
+                  {{ form.interestedResponse.label_tag }}
+                  <label for="survey_interestedResponse"><span class="hidden">Interested</span></label>
+                  <td colspan="10" style="color:transparent !important">{{ form.interestedResponse }}</td>
+                </div>
+              </td>
+            </tr>
 
-          <tr>
-            <td>
-              {{ form.non_field_errors }}
-              <div class="form__field" style="color:white;">
-                {{ form.distressedResponse.errors }}
-                {{ form.distressedResponse.label_tag }}
-                <label for="distressedResponse"><span class="hidden">Distressed</span></label>
-                <td colspan="10" style="color:transparent !important">{{ form.distressedResponse }}</td>
-              </div>
-            </td>
-          </tr>
+            <tr>
+              <td>
+                {{ form.non_field_errors }}
+                <div class="form__field" style="color:white;">
+                  {{ form.distressedResponse.errors }}
+                  {{ form.distressedResponse.label_tag }}
+                  <label for="survey_distressedResponse"><span class="hidden">Distressed</span></label>
+                  <td colspan="10" style="color:transparent !important">{{ form.distressedResponse }}</td>
+                </div>
+              </td>
+            </tr>
 
-          <tr>
-            <td>
-              {{ form.non_field_errors }}
-              <div class="form__field" style="color:white;">
-                {{ form.excitedResponse.errors }}
-                {{ form.excitedResponse.label_tag }}
-                <label for="excitedResponse"><span class="hidden">Excited</span></label>
-                <td colspan="10" style="color:transparent !important">{{ form.excitedResponse }}</td>
-              </div>
-            </td>
-          </tr>
+            <tr>
+              <td>
+                {{ form.non_field_errors }}
+                <div class="form__field" style="color:white;">
+                  {{ form.excitedResponse.errors }}
+                  {{ form.excitedResponse.label_tag }}
+                  <label for="survey_excitedResponse"><span class="hidden">Excited</span></label>
+                  <td colspan="10" style="color:transparent !important">{{ form.excitedResponse }}</td>
+                </div>
+              </td>
+            </tr>
 
-          <tr>
-            <td>
-              {{ form.non_field_errors }}
-              <div class="form__field" style="color:white;">
-                {{ form.upsetResponse.errors }}
-                {{ form.upsetResponse.label_tag }}
-                <label for="upsetResponse"><span class="hidden">Upset</span></label>
-                <td colspan="10" style="color:transparent !important">{{ form.upsetResponse }}</td>
-              </div>
-            </td>
-          </tr>
+            <tr>
+              <td>
+                {{ form.non_field_errors }}
+                <div class="form__field" style="color:white;">
+                  {{ form.upsetResponse.errors }}
+                  {{ form.upsetResponse.label_tag }}
+                  <label for="survey_upsetResponse"><span class="hidden">Upset</span></label>
+                  <td colspan="10" style="color:transparent !important">{{ form.upsetResponse }}</td>
+                </div>
+              </td>
+            </tr>
 
-          <tr>
-            <td>
-              {{ form.non_field_errors }}
-              <div class="form__field" style="color:white;">
-                {{ form.strongResponse.errors }}
-                {{ form.strongResponse.label_tag }}
-                <label for="strongResponse"><span class="hidden">Strong</span></label>
-                <td colspan="10" style="color:transparent !important">{{ form.strongResponse }}</td>
-              </div>
-            </td>
-          </tr>
+            <tr>
+              <td>
+                {{ form.non_field_errors }}
+                <div class="form__field" style="color:white;">
+                  {{ form.strongResponse.errors }}
+                  {{ form.strongResponse.label_tag }}
+                  <label for="survey_strongResponse"><span class="hidden">Strong</span></label>
+                  <td colspan="10" style="color:transparent !important">{{ form.strongResponse }}</td>
+                </div>
+              </td>
+            </tr>
 
-          <tr>
-            <td>
-              {{ form.non_field_errors }}
-              <div class="form__field" style="color:white;">
-                {{ form.guiltyResponse.errors }}
-                {{ form.guiltyResponse.label_tag }}
-                <label for="guiltyResponse"><span class="hidden">Guilty/span></label>
-                <td colspan="10" style="color:transparent !important">{{ form.guiltyResponse }}</td>
-              </div>
-            </td>
-          </tr>
+            <tr>
+              <td>
+                {{ form.non_field_errors }}
+                <div class="form__field" style="color:white;">
+                  {{ form.guiltyResponse.errors }}
+                  {{ form.guiltyResponse.label_tag }}
+                  <label for="survey_guiltyResponse"><span class="hidden">Guilty/span></label>
+                  <td colspan="10" style="color:transparent !important">{{ form.guiltyResponse }}</td>
+                </div>
+              </td>
+            </tr>
 
-          <tr>
-            <td>
-              {{ form.non_field_errors }}
-              <div class="form__field" style="color:white;">
-                {{ form.scaredResponse.errors }}
-                {{ form.scaredResponse.label_tag }}
-                <label for="scaredResponse"><span class="hidden">Scared</span></label>
-                <td colspan="10" style="color:transparent !important">{{ form.scaredResponse }}</td>
-              </div>
-            </td>
-          </tr>
+            <tr>
+              <td>
+                {{ form.non_field_errors }}
+                <div class="form__field" style="color:white;">
+                  {{ form.scaredResponse.errors }}
+                  {{ form.scaredResponse.label_tag }}
+                  <label for="survey_scaredResponse"><span class="hidden">Scared</span></label>
+                  <td colspan="10" style="color:transparent !important">{{ form.scaredResponse }}</td>
+                </div>
+              </td>
+            </tr>
 
-          <tr>
-            <td>
-              {{ form.non_field_errors }}
-              <div class="form__field" style="color:white;">
-                {{ form.hostileResponse.errors }}
-                {{ form.hostileResponse.label_tag }}
-                <label for="hostileResponse"><span class="hidden">Hostile</span></label>
-                <td colspan="10" style="color:transparent !important">{{ form.hostileResponse }}</td>
-              </div>
-            </td>
-          </tr>
+            <tr>
+              <td>
+                {{ form.non_field_errors }}
+                <div class="form__field" style="color:white;">
+                  {{ form.hostileResponse.errors }}
+                  {{ form.hostileResponse.label_tag }}
+                  <label for="survey_hostileResponse"><span class="hidden">Hostile</span></label>
+                  <td colspan="10" style="color:transparent !important">{{ form.hostileResponse }}</td>
+                </div>
+              </td>
+            </tr>
 
-          <tr>
-            <td>
-              {{ form.non_field_errors }}
-              <div class="form__field" style="color:white;">
-                {{ form.enthusiasticResponse.errors }}
-                {{ form.enthusiasticResponse.label_tag }}
-                <label for="enthusiasticResponse"><span class="hidden">Enthusiastic</span></label>
-                <td colspan="10" style="color:transparent !important">{{ form.enthusiasticResponse }}</td>
-              </div>
-            </td>
-          </tr>
+            <tr>
+              <td>
+                {{ form.non_field_errors }}
+                <div class="form__field" style="color:white;">
+                  {{ form.enthusiasticResponse.errors }}
+                  {{ form.enthusiasticResponse.label_tag }}
+                  <label for="survey_enthusiasticResponse"><span class="hidden">Enthusiastic</span></label>
+                  <td colspan="10" style="color:transparent !important">{{ form.enthusiasticResponse }}</td>
+                </div>
+              </td>
+            </tr>
 
-          <tr>
-            <td>
-              {{ form.non_field_errors }}
-              <div class="form__field" style="color:white;">
-                {{ form.proudResponse.errors }}
-                {{ form.proudResponse.label_tag }}
-                <label for="proudResponse"><span class="hidden">Proud</span></label>
-                <td colspan="10" style="color:transparent !important">{{ form.proudResponse }}</td>
-              </div>
-            </td>
-          </tr>
+            <tr>
+              <td>
+                {{ form.non_field_errors }}
+                <div class="form__field" style="color:white;">
+                  {{ form.proudResponse.errors }}
+                  {{ form.proudResponse.label_tag }}
+                  <label for="survey_proudResponse"><span class="hidden">Proud</span></label>
+                  <td colspan="10" style="color:transparent !important">{{ form.proudResponse }}</td>
+                </div>
+              </td>
+            </tr>
 
-          <tr>
-            <td>
-              {{ form.non_field_errors }}
-              <div class="form__field" style="color:white;">
-                {{ form.irritableResponse.errors }}
-                {{ form.irritableResponse.label_tag }}
-                <label for="irritableResponse"><span class="hidden">Irritable/span></label>
-                <td colspan="10" style="color:transparent !important">{{ form.irritableResponse }}</td>
-              </div>
-            </td>
-          </tr>
+            <tr>
+              <td>
+                {{ form.non_field_errors }}
+                <div class="form__field" style="color:white;">
+                  {{ form.irritableResponse.errors }}
+                  {{ form.irritableResponse.label_tag }}
+                  <label for="survey_irritableResponse"><span class="hidden">Irritable/span></label>
+                  <td colspan="10" style="color:transparent !important">{{ form.irritableResponse }}</td>
+                </div>
+              </td>
+            </tr>
 
-          <tr>
-            <td>
-              {{ form.non_field_errors }}
-              <div class="form__field" style="color:white;">
-                {{ form.alertResponse.errors }}
-                {{ form.alertResponse.label_tag }}
-                <label for="alertResponse"><span class="hidden">Alert</span></label>
-                <td colspan="10" style="color:transparent !important">{{ form.alertResponse }}</td>
-              </div>
-            </td>
-          </tr>
+            <tr>
+              <td>
+                {{ form.non_field_errors }}
+                <div class="form__field" style="color:white;">
+                  {{ form.alertResponse.errors }}
+                  {{ form.alertResponse.label_tag }}
+                  <label for="survey_alertResponse"><span class="hidden">Alert</span></label>
+                  <td colspan="10" style="color:transparent !important">{{ form.alertResponse }}</td>
+                </div>
+              </td>
+            </tr>
 
-          <tr>
-            <td>
-              {{ form.non_field_errors }}
-              <div class="form__field" style="color:white;">
-                {{ form.ashamedResponse.errors }}
-                {{ form.ashamedResponse.label_tag }}
-                <label for="ashamedResponse"><span class="hidden">Ashamed</span></label>
-                <td colspan="10" style="color:transparent !important">{{ form.ashamedResponse }}</td>
-              </div>
-            </td>
-          </tr>
+            <tr>
+              <td>
+                {{ form.non_field_errors }}
+                <div class="form__field" style="color:white;">
+                  {{ form.ashamedResponse.errors }}
+                  {{ form.ashamedResponse.label_tag }}
+                  <label for="survey_ashamedResponse"><span class="hidden">Ashamed</span></label>
+                  <td colspan="10" style="color:transparent !important">{{ form.ashamedResponse }}</td>
+                </div>
+              </td>
+            </tr>
 
-          <tr>
-            <td>
-              {{ form.non_field_errors }}
-              <div class="form__field" style="color:white;">
-                {{ form.inspiredResponse.errors }}
-                {{ form.inspiredResponse.label_tag }}
-                <label for="inspiredResponse"><span class="hidden">Inspired</span></label>
-                <td colspan="10" style="color:transparent !important">{{ form.inspiredResponse }}</td>
-              </div>
-            </td>
-          </tr>
+            <tr>
+              <td>
+                {{ form.non_field_errors }}
+                <div class="form__field" style="color:white;">
+                  {{ form.inspiredResponse.errors }}
+                  {{ form.inspiredResponse.label_tag }}
+                  <label for="survey_inspiredResponse"><span class="hidden">Inspired</span></label>
+                  <td colspan="10" style="color:transparent !important">{{ form.inspiredResponse }}</td>
+                </div>
+              </td>
+            </tr>
 
-          <tr>
-            <td>
-              {{ form.non_field_errors }}
-              <div class="form__field" style="color:white;">
-                {{ form.nervousResponse.errors }}
-                {{ form.nervousResponse.label_tag }}
-                <label for="nervousResponse"><span class="hidden">Nervous</span></label>
-                <td colspan="10" style="color:transparent !important">{{ form.nervousResponse }}</td>
-              </div>
-            </td>
-          </tr>
+            <tr>
+              <td>
+                {{ form.non_field_errors }}
+                <div class="form__field" style="color:white;">
+                  {{ form.nervousResponse.errors }}
+                  {{ form.nervousResponse.label_tag }}
+                  <label for="survey_nervousResponse"><span class="hidden">Nervous</span></label>
+                  <td colspan="10" style="color:transparent !important">{{ form.nervousResponse }}</td>
+                </div>
+              </td>
+            </tr>
 
-          <tr>
-            <td>
-              {{ form.non_field_errors }}
-              <div class="form__field" style="color:white;">
-                {{ form.determinedResponse.errors }}
-                {{ form.determinedResponse.label_tag }}
-                <label for="determinedResponse"><span class="hidden">Determined</span></label>
-                <td colspan="10" style="color:transparent !important">{{ form.determinedResponse }}</td>
-              </div>
-            </td>
-          </tr>
+            <tr>
+              <td>
+                {{ form.non_field_errors }}
+                <div class="form__field" style="color:white;">
+                  {{ form.determinedResponse.errors }}
+                  {{ form.determinedResponse.label_tag }}
+                  <label for="survey_determinedResponse"><span class="hidden">Determined</span></label>
+                  <td colspan="10" style="color:transparent !important">{{ form.determinedResponse }}</td>
+                </div>
+              </td>
+            </tr>
 
-          <tr>
-            <td>
-              {{ form.non_field_errors }}
-              <div class="form__field" style="color:white;">
-                {{ form.attentiveResponse.errors }}
-                {{ form.attentiveResponse.label_tag }}
-                <label for="attentiveResponse"><span class="hidden">Attentive</span></label>
-                <td colspan="10" style="color:transparent !important">{{ form.attentiveResponse }}</td>
-              </div>
-            </td>
-          </tr>
+            <tr>
+              <td>
+                {{ form.non_field_errors }}
+                <div class="form__field" style="color:white;">
+                  {{ form.attentiveResponse.errors }}
+                  {{ form.attentiveResponse.label_tag }}
+                  <label for="survey_attentiveResponse"><span class="hidden">Attentive</span></label>
+                  <td colspan="10" style="color:transparent !important">{{ form.attentiveResponse }}</td>
+                </div>
+              </td>
+            </tr>
 
-          <tr>
-            <td>
-              {{ form.non_field_errors }}
-              <div class="form__field" style="color:white;">
-                {{ form.jitteryResponse.errors }}
-                {{ form.jitteryResponse.label_tag }}
-                <label for="jitteryResponse"><span class="hidden">Jittery</span></label>
-                <td colspan="10" style="color:transparent !important">{{ form.jitteryResponse }}</td>
-              </div>
-            </td>
-          </tr>
+            <tr>
+              <td>
+                {{ form.non_field_errors }}
+                <div class="form__field" style="color:white;">
+                  {{ form.jitteryResponse.errors }}
+                  {{ form.jitteryResponse.label_tag }}
+                  <label for="survey_jitteryResponse"><span class="hidden">Jittery</span></label>
+                  <td colspan="10" style="color:transparent !important">{{ form.jitteryResponse }}</td>
+                </div>
+              </td>
+            </tr>
 
-          <tr>
-            <td>
-              {{ form.non_field_errors }}
-              <div class="form__field" style="color:white;">
-                {{ form.activeResponse.errors }}
-                {{ form.activeResponse.label_tag }}
-                <label for="activeResponse"><span class="hidden">Active</span></label>
-                <td colspan="10" style="color:transparent !important">{{ form.activeResponse }}</td>
-              </div>
-            </td>
-          </tr>
+            <tr>
+              <td>
+                {{ form.non_field_errors }}
+                <div class="form__field" style="color:white;">
+                  {{ form.activeResponse.errors }}
+                  {{ form.activeResponse.label_tag }}
+                  <label for="survey_activeResponse"><span class="hidden">Active</span></label>
+                  <td colspan="10" style="color:transparent !important">{{ form.activeResponse }}</td>
+                </div>
+              </td>
+            </tr>
 
-          <tr>
-            <td>
-              {{ form.non_field_errors }}
-              <div class="form__field" style="color:white;">
-                {{ form.afraidResponse.errors }}
-                {{ form.afraidResponse.label_tag }}
-                <label for="afraidResponse"><span class="hidden">Afraid</span></label>
-                <td colspan="10" style="color:transparent !important">{{ form.afraidResponse }}</td>
-              </div>
-            </td>
-          </tr>
-        </table>
+            <tr>
+              <td>
+                {{ form.non_field_errors }}
+                <div class="form__field" style="color:white;">
+                  {{ form.afraidResponse.errors }}
+                  {{ form.afraidResponse.label_tag }}
+                  <label for="survey_afraidResponse"><span class="hidden">Afraid</span></label>
+                  <td colspan="10" style="color:transparent !important">{{ form.afraidResponse }}</td>
+                </div>
+              </td>
+            </tr>
+          </table>
 
-        <div class="container">
-            <a class="btn btn-lg btn-info" href="/device_form.html" role="button">Start Scan</a>
+          <div class="container">
+            <a href="/trial_form.html"><input type="submit" class="btn btn-lg btn-info" value="Start Research"/></a>
+          </div>
         </div>
       </div>
-    </div>
-  </form>
+    </form>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

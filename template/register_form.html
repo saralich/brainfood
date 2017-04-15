@@ -79,43 +79,43 @@
         <input type="hidden" name="next" value="{{ next }}"/>
         {% endif %}
 
-        {{ form.non_field_errors }}
-        <div class="form__field" style="color:#5bc0de;">
-          {{ form.firstName.errors }}
-          {{ form.firstName.label_tag }}
-          <label for="firstName"><span class="hidden">First Name</span></label> {{ form.firstName }}
-        </div>
+          {{ form.non_field_errors }}
+          <div class="form__field" style="color:#5bc0de;">
+            {{ form.firstName.errors }}
+            {{ form.firstName.label_tag }}
+            <label for="register__firstName"><span class="hidden">First Name</span></label> {{ form.firstName }}
+          </div>
 
-        <div class="form__field" style="color:#5bc0de;">
-          {{ form.lastName.errors }}
-          {{ form.lastName.label_tag }}
-          <label for="lastName"><span class="hidden">Last Name</span></label> {{ form.lastName }}
-        </div>
+          <div class="form__field" style="color:#5bc0de;">
+            {{ form.lastName.errors }}
+            {{ form.lastName.label_tag }}
+            <label for="register__lastName"><span class="hidden">Last Name</span></label> {{ form.lastName }}
+          </div>
 
-        <div class="form__field" style="color:#5bc0de;">
-          {{ form.user_email.errors }}
-          {{ form.user_email.label_tag }}
-          <label for="email"><span class="hidden">Email</span></label> {{ form.user_email }}
-        </div>
+          <div class="form__field" style="color:#5bc0de;">
+            {{ form.user_email.errors }}
+            {{ form.user_email.label_tag }}
+            <label for="register__email"><span class="hidden">Email</span></label> {{ form.user_email }}
+          </div>
 
-        <div class="form__field" style="color:#5bc0de;">
-          {{ form.user_name.errors }}
-          {{ form.user_name.label_tag }}
-          <label for="user_name"><span class="hidden">Username</span></label> {{ form.user_name }}
-        </div>
+          <div class="form__field" style="color:#5bc0de;">
+            {{ form.user_name.errors }}
+            {{ form.user_name.label_tag }}
+            <label for="register__user_name"><span class="hidden">Username</span></label> {{ form.user_name }}
+          </div>
 
-        <div class="form__field" style="color:#5bc0de;">
-          {{ form.password.errors }}
-          {{ form.password.label_tag }}
-          <label for="password"><span class="hidden">Password</span></label> {{ form.password }}
-        </div>
+          <div class="form__field" style="color:#5bc0de;">
+            {{ form.password.errors }}
+            {{ form.password.label_tag }}
+            <label for="register__password"><span class="hidden">Password</span></label> {{ form.password }}
+          </div>
 
-        <div class="container">
-          <a class="btn btn-lg btn-info" href="/survey_form.html" role="button">Start Survey</a>
+          <div class="container">
+            <a href="/survey_form.html"><input type="submit" class="btn btn-lg btn-info" role="button" value="Start Survey" /></a>
+          </div>
         </div>
       </div>
-    </div>
-  </form>
+    </form>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

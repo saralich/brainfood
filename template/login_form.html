@@ -77,35 +77,27 @@
         <input type="hidden" name="next" value="{{ next }}"/>
         {% endif %}
 
-        {% if form.subject.errors %}
-          <ol>
-          {% for error in form.subject.errors %}
-              <li><strong>{{ error|escape }}</strong></li>
-          {% endfor %}
-          </ol>
-        {% endif %}
+          {{ form.non_field_errors }}
+          <div class="form__field" style="color:#5bc0de;">
+            {{ form.user_name.errors }}
+            {{ form.user_name.label_tag }}
+            <label for="login__user_name"><span class="hidden">Username</span></label>
+            {{ form.user_name }}
+          </div>
 
-        {{ form.non_field_errors }}
-        <div class="form__field" style="color:#5bc0de;">
-          {{ form.user_name.errors }}
-          {{ form.user_name.label_tag }}
-          <label for="user_name"><span class="hidden">Username</span></label>
-          {{ form.user_name }}
-        </div>
+          <div class="form__field" style="color:#5bc0de;">
+            {{ form.password.errors }}
+            {{ form.password.label_tag }}
+            <label for="login__password"><span class="hidden">Password</span></label>
+            {{ form.password }}
+          </div>
 
-        <div class="form__field" style="color:#5bc0de;">
-          {{ form.password.errors }}
-          {{ form.password.label_tag }}
-          <label for="password"><span class="hidden">Password</span></label>
-          {{ form.password }}
-        </div>
-
-        <div class="container">
-          <a class="btn btn-lg btn-info" href="/survey_form.html" role="button">Start Survey</a>
+          <div class="container">
+            <a href="/survey_form.html"><input type="submit" class="btn btn-lg btn-info" value="Start Survey"/></a>
+          </div>
         </div>
       </div>
-    </div>
-  </form>
+    </form>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
