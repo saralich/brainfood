@@ -1,1 +1,1 @@
-web: gunicorn seniorproject:app --log-file -
+web: gunicorn seniorprojectapp:app --log-file -
