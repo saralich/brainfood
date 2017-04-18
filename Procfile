@@ -1,1 +1,1 @@
-web: gunicorn seniorproject.wsgi --log-file -
+web: gunicorn seniorproject:app --log-file -
